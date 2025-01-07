@@ -24,3 +24,8 @@ Here are the technologies planned to be used for an complete enterprise data eng
 
 Here is the overview of the project:
 ![My Image](images/enterprise_cdc_pipeline.png)
+
+
+sources:
+[1] https://www.youtube.com/watch?v=eQPtuLwJxHA
+[2] https://www.youtube.com/watch?v=E9D3sgVA6YA
