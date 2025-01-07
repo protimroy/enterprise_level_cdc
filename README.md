@@ -1,8 +1,10 @@
-# enterprise_level_cdc
+# Enterprise Level CDC project on AWS
 
 This repository is a complete enterprise level CDC data ingestion project.
+
 It uses the following technologies and services:
-    - AWS EC2 instance
+    
+    -AWS EC2 instance
     - AWS VPC
     - AWS Lambda to scrape Rest APIs
     - AWS Aurora Postgres DB to store data
@@ -11,8 +13,14 @@ It uses the following technologies and services:
     - AWS Kafka(MSK)
 
 Here are the technologies planned to be used for an complete enterprise data engineering project:
+
     - AWS Glue
     - Apache Hudi
     - AWS Athena
     - Quicksight
     - Terraform to perhaps wrap the entire infrasture setup and teardown as code
+
+
+
+Here is the overview of the project:
+![My Image](images/overview.jpg)
