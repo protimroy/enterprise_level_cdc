@@ -5,8 +5,8 @@ services:
     image: obsidiandynamics/kafdrop
     restart: 'no'
     environment:
-      KAFKA_BROKERCONNECT: b-1.rdscdcpoc.a9xfz6.c2.kafka.ap-southeast-1.amazonaws.com:9092,b-2.rdscdcpoc.a9xfz6.c2.kafka.ap-southeast-1.amazonaws.com:9092
-      SCHEMAREGISTRY_CONNECT: http://schema-registry:8081 #### add when add avro schema registry
+      KAFKA_BROKERCONNECT: b-1.cdcclustermskdemo.no1bej.c14.kafka.us-east-1.amazonaws.com:9092,b-2.cdcclustermskdemo.no1bej.c14.kafka.us-east-1.amazonaws.com:9092
+
     ports:
       - 9000:9000
 
@@ -21,11 +21,7 @@ services:
       CONFIG_STORAGE_TOPIC: cdc_connect_configs
       OFFSET_STORAGE_TOPIC: cdc_connect_offsets
       STATUS_STORAGE_TOPIC: cdc_connect_status
-      BOOTSTRAP_SERVERS: b-1.rdscdcpoc.a9xfz6.c2.kafka.ap-southeast-1.amazonaws.com:9092,b-2.rdscdcpoc.a9xfz6.c2.kafka.ap-southeast-1.amazonaws.com:9092
-      KEY_CONVERTER: io.confluent.connect.avro.AvroConverter #### add when add avro schema registry
-      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081 #### add when add avro schema registry
-      VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter #### add when add avro schema registry
-      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081 #### add when add avro schema registry
+      BOOTSTRAP_SERVERS: b-1.cdcclustermskdemo.no1bej.c14.kafka.us-east-1.amazonaws.com:9092,b-2.cdcclustermskdemo.no1bej.c14.kafka.us-east-1.amazonaws.com:9092
 
   # Kafka Connect UI
   kafka-connect-ui:
@@ -36,12 +32,3 @@ services:
       - 8000:8000
     depends_on:
       - kconnect
-
-  # Schema Registry - add when add avro schema registry
-  schema-registry:
-    image: confluentinc/cp-schema-registry:7.3.0
-    ports:
-      - 8081:8081
-    environment:
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: b-1.cdcclustermsk.7vyu01.c2.kafka.ap-southeast-1.amazonaws.com:9092,b-2.cdcclustermsk.7vyu01.c2.kafka.ap-southeast-1.amazonaws.com:9092
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
